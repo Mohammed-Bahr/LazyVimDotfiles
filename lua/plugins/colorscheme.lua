@@ -74,6 +74,13 @@ return {
     "ellisonleao/gruvbox.nvim",
   },
   {
+    dir = vim.fn.stdpath("config") .. "/lua/Themes/Voidlight/voidlight-lazyvim-theme",
+    name = "voidlight",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "kanagawa",
