@@ -27,6 +27,30 @@ return {
         types = {},
         operators = {},
       },
+      -- color_overrides = {
+      --   mocha = {
+      --     base = "#110f0e",
+      --     mantle = "#0c0a0a",
+      --     crust = "#050505",
+      --     surface0 = "#221f1d",
+      --     surface1 = "#2c2826",
+      --     surface2 = "#37322f",
+      --     text = "#e6e1de",
+      --     subtext1 = "#d0c9c5",
+      --     subtext0 = "#b8b0ab",
+      --     overlay2 = "#a09793",
+      --     overlay1 = "#897f7b",
+      --     overlay0 = "#736965",
+      --   },
+      -- },
+      -- custom_highlights = function(colors)
+      --   return {
+      --     WinSeparator = { fg = colors.surface1, bg = "NONE" },
+      --     NvimTreeWinSeparator = { fg = colors.surface1, bg = "NONE" },
+      --     NormalFloat = { bg = colors.mantle },
+      --     FloatBorder = { fg = colors.surface2, bg = colors.mantle },
+      --   }
+      -- end,
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -60,11 +84,17 @@ return {
         },
       },
     },
+    -- config = function(_, opts)
+    --   require("catppuccin").setup(opts)
+    --   -- Allow switching directly via :DarkHeavy or :colorscheme catppuccin
+    --   vim.api.nvim_create_user_command("DarkHeavy", function()
+    --     vim.cmd("colorscheme catppuccin")
+    --   end, { desc = "Load DarkHeavy theme" })
+    -- end,
   },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
-    priority = 1000,
     opts = {
       transparent = true,
       theme = "wave", -- Load "wave" theme when 'background' option is not set
@@ -76,8 +106,7 @@ return {
   {
     dir = vim.fn.stdpath("config") .. "/lua/Themes/Voidlight/voidlight-lazyvim-theme",
     name = "voidlight",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     opts = {},
   },
   {
