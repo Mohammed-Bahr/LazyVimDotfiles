@@ -110,9 +110,15 @@ return {
     opts = {},
   },
   {
+    dir = vim.fn.stdpath("config") .. "/lua/Themes/NotionDark/notion-dark",
+    name = "notiondark",
+    lazy = true,
+    opts = {},
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "notiondark",
     },
   },
 }
