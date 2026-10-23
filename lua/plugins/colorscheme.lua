@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
-    priority = 1000,
+    -- priority = 1000,
     opts = {
       flavour = "mocha", -- mocha, macchiato, frappe, or latte
       transparent_background = true, -- works with our transparency setup
@@ -106,13 +106,14 @@ return {
   {
     dir = vim.fn.stdpath("config") .. "/lua/Themes/NotionDark/notion-dark",
     name = "notiondark",
-    lazy = true,
+    lazy = false,
     opts = {},
   },
   {
     "LazyVim/LazyVim",
+    lazy = true,
     opts = {
-      colorscheme = "notiondark",
+      colorscheme = "tokyonight-night",
     },
   },
 }
