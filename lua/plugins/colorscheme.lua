@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = false,
+    lazy = true,
     -- priority = 1000,
     opts = {
       flavour = "mocha", -- mocha, macchiato, frappe, or latte
@@ -43,14 +43,14 @@ return {
       --     overlay0 = "#736965",
       --   },
       -- },
-      -- custom_highlights = function(colors)
-      --   return {
-      --     WinSeparator = { fg = colors.surface1, bg = "NONE" },
-      --     NvimTreeWinSeparator = { fg = colors.surface1, bg = "NONE" },
-      --     NormalFloat = { bg = colors.mantle },
-      --     FloatBorder = { fg = colors.surface2, bg = colors.mantle },
-      --   }
-      -- end,
+      custom_highlights = function(colors)
+        return {
+          WinSeparator = { fg = colors.surface1, bg = "NONE" },
+          NvimTreeWinSeparator = { fg = colors.surface1, bg = "NONE" },
+          NormalFloat = { bg = colors.mantle },
+          FloatBorder = { fg = colors.surface2, bg = colors.mantle },
+        }
+      end,
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -84,13 +84,13 @@ return {
         },
       },
     },
-    -- config = function(_, opts)
-    --   require("catppuccin").setup(opts)
-    --   -- Allow switching directly via :DarkHeavy or :colorscheme catppuccin
-    --   vim.api.nvim_create_user_command("DarkHeavy", function()
-    --     vim.cmd("colorscheme catppuccin")
-    --   end, { desc = "Load DarkHeavy theme" })
-    -- end,
+    --   config = function(_, opts)
+    --     require("catppuccin").setup(opts)
+    --     -- Allow switching directly via :DarkHeavy or :colorscheme catppuccin
+    --     vim.api.nvim_create_user_command("DarkHeavy", function()
+    --       vim.cmd("colorscheme catppuccin")
+    --     end, { desc = "Load DarkHeavy theme" })
+    --   end,
   },
   {
     "rebelot/kanagawa.nvim",
@@ -106,7 +106,7 @@ return {
   {
     dir = vim.fn.stdpath("config") .. "/lua/Themes/NotionDark/notion-dark",
     name = "notiondark",
-    lazy = false,
+    lazy = true,
     opts = {},
   },
   {
