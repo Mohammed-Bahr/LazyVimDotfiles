@@ -113,7 +113,7 @@ return {
     "LazyVim/LazyVim",
     lazy = true,
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "notiondark",
     },
   },
 }
