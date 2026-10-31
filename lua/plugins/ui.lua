@@ -149,11 +149,6 @@ return {
           border = "none",
           winhighlight = "Normal:BlinkCmpMenu,FloatBorder:Normal,CursorLine:BlinkCmpMenuSelection,Search:None",
           scrollbar = false,
-          cmdline_position = function()
-            local cmp = require("blink.cmp")
-            local row, col = cmp.get_win_cursor()
-            return { row + 2, col }
-          end,
         },
         documentation = {
           window = {
@@ -260,16 +255,9 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      -- preset = "classic",
       win = {
         border = "none",
         padding = { 1, 2 },
-      --   wo = {
-      --     winhighlight = "Normal:Normal,FloatBorder:Normal",
-      --   },
-      -- },
-      -- icons = {
-      --   rules = false,
       },
     },
   },
@@ -304,7 +292,7 @@ return {
 
   -- mason: borderless
   -- {
-  --   "williambason/mason.nvim",
+  --   "williamboman/mason.nvim",
   --   opts = {
   --     ui = {
   --       border = "none",
@@ -316,15 +304,4 @@ return {
   --     },
   --   },
   -- },
-
-  -- conform: no visual changes needed, keep formatter silent
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-    },
-  },
 }
