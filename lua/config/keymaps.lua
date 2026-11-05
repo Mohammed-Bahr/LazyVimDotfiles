@@ -4,9 +4,12 @@
 --
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = false })
 
--- Clipboard is set in lua/config/options.lua and LazyVim handles the SSH/OSC52
--- case. Forcing `unnamedplus` here again caused a "clipboard: No provider"
--- warning over SSH, so it is intentionally left to LazyVim.
+-- Auto clipboard sync is disabled in lua/config/options.lua. Use these for
+-- explicit system clipboard copy/paste; plain y/p stay inside Neovim registers.
+vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+yg_', { desc = "Copy line to system clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste from system clipboard (before)" })
 
 -- Swap the vertical movement keys in normal, visual, and operator-pending modes.
 -- vim.keymap.set({ "n", "x", "o" }, "j", "k", { desc = "Move up" })
