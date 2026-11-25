@@ -9,6 +9,10 @@
 -- register) if you want to delete without clobbering it.
 vim.opt.clipboard = "unnamedplus"
 
+-- Gruvbox syntax colours for code, on top of the theme's UI (see code_colors.lua).
+-- Loaded here because LazyVim only auto-loads options/keymaps/autocmds.
+require("config.code_colors")
+
 -- Allow Ghostty's horizontal touchpad scroll events to pan long lines.
 vim.opt.mouse = "a"
 vim.opt.wrap = false

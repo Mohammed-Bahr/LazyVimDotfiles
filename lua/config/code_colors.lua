@@ -149,30 +149,28 @@ local code = {
   ["@markup.quote"] = { fg = gb.fg2, italic = true },
 }
 
-local function apply()
+local M = {}
+
+function M.apply()
   for group, hl in pairs(code) do
     vim.api.nvim_set_hl(0, group, hl)
   end
 end
 
-return {
-  {
-    "LazyVim/LazyVim",
-    init = function()
-      -- Re-apply after every colourscheme load so our overrides always land on
-      -- top of the theme's own syntax definitions.
-      local group = vim.api.nvim_create_augroup("GruvboxCodeColors", { clear = true })
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        group = group,
-        pattern = "notiondark",
-        callback = apply,
-      })
+-- Re-apply after every colourscheme load so these overrides always land on top
+-- of the theme's own syntax definitions. The augroup is cleared first, which
+-- makes this safe to run again when the file is hot-reloaded.
+local augroup = vim.api.nvim_create_augroup("GruvboxCodeColors", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = augroup,
+  pattern = "notiondark",
+  callback = M.apply,
+})
 
-      -- Covers the case where notiondark was already loaded before this spec
-      -- was evaluated (e.g. sourcing the config by hand).
-      if vim.g.colors_name == "notiondark" then
-        apply()
-      end
-    end,
-  },
-}
+-- Covers the case where notiondark is already active (e.g. this module is
+-- re-required on save, after the colourscheme has loaded).
+if vim.g.colors_name == "notiondark" then
+  M.apply()
+end
+
+return M
