@@ -4,8 +4,9 @@
 --
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = false })
 
--- Auto clipboard sync is disabled in lua/config/options.lua. Use these for
--- explicit system clipboard copy/paste; plain y/p stay inside Neovim registers.
+-- The system clipboard is synced automatically via `clipboard=unnamedplus`
+-- (see options.lua), so plain y/d/c and p already hit the system clipboard.
+-- These explicit keymaps are kept as aliases that force the "+ register.
 vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+yg_', { desc = "Copy line to system clipboard" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
